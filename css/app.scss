@@ -1,0 +1,283 @@
+$colors: yellow,
+#89ccf9;
+
+body {
+  color: #fff;
+  margin: 0;
+  background-color: rebeccapurple;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.center {
+  justify-content: center;
+}
+
+.container {
+  @media only screen and (min-width: 993px) {
+    width: 100% !important;
+  }
+}
+
+.pos {
+  padding: 50px 50px 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+select {
+  background-color: red;
+}
+
+.background {
+  max-height: 100vh;
+  justify-content: center;
+  padding: 50px 100px;
+  align-items: center;
+}
+
+.main-layout {
+  overflow: hidden;
+  position: relative;
+  min-height: 700px;
+  display: block;
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  // background-size: cover;
+  // background: url(https://cdn.pixabay.com/photo/2017/06/11/18/03/london-2393098_1280.jpg) no-repeat center top fixed;
+  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+    2px -11px 11px -7px rgba(0, 0, 0, 0.37);
+  box-shadow: 0px 10px 13px -7px #000000,
+    2px -11px 11px -7px rgba(0, 0, 0, 0.37);
+
+  .bg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+  }
+
+  &::before {
+    content: "";
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(76, 75, 75, 0.4);
+    z-index: 1;
+  }
+}
+
+input {
+  border: none;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: rgba(202, 201, 201, 0.2);
+  padding: 10px;
+  border-radius: 8px;
+
+  @media only screen and (min-width: 992px) {
+    font-size: 1.4rem !important;
+  }
+
+  &:focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  &::placeholder {
+    color: white;
+  }
+}
+
+.search-loc,
+.loc,
+.group-cards,
+.current {
+  z-index: 100;
+}
+
+.loc {
+  text-align: right;
+  font-weight: 700;
+}
+
+//current weather
+
+@keyframes move-up {
+  0% {
+    transform: translateY(500px);
+    opacity: 0;
+  }
+
+  20% {
+    transform: translateY(400px);
+    opacity: 0.2;
+  }
+
+  40% {
+    transform: translateY(300px);
+    opacity: 0.4;
+  }
+
+  60% {
+    transform: translateY(200px);
+    opacity: 0.6;
+  }
+
+  80% {
+    transform: translateY(100px);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.current {
+  flex-direction: row;
+  animation: 1s ease-out 0s move-up;
+
+  &__city {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+
+  .inner-container {
+    flex-direction: column;
+    margin: 0 30px;
+    align-items: center;
+  }
+
+  &__icon {
+    margin: 20px 0;
+    object-fit: contain;
+  }
+
+  &__deg {
+    align-self: center;
+    font-size: 5rem;
+    margin-top: 60px;
+  }
+
+  .wind {
+    margin-top: 10px;
+  }
+
+  .additional-info {
+    flex-direction: column;
+    justify-content: center;
+
+    margin-top: 60px;
+  }
+}
+
+//nav
+
+.controls {
+  background-color: transparent;
+  box-shadow: none;
+  line-height: 15px;
+  position: absolute;
+  bottom: 270px;
+  z-index: 100;
+  padding: 0;
+
+  &__item {
+    list-style: none;
+    padding: 20px 10px;
+    width: 70px;
+    z-index: 100;
+    transition: all ease-in-out 0.4s;
+    background-color: rgba(255, 0, 0, 0.301);
+    margin-bottom: 3px;
+    border-radius: 0 10px 10px 0;
+
+    &:hover {
+      cursor: pointer;
+      color: black;
+      width: 75px;
+    }
+  }
+}
+
+.active {
+  background: #2099d15d;
+  width: 75px;
+}
+
+select {
+  background-color: rgba(87, 87, 87, 0.26);
+  z-index: 1;
+  padding: 5px 20px;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+}
+
+.render {
+  margin-bottom: 40px;
+
+}
+
+//weather-card
+
+.group-cards {
+  animation: 1s ease-out 0s move-up;
+  position: absolute;
+  bottom: 0;
+  overflow: hidden;
+  width: 100%;
+  display: none;
+  z-index: 10;
+}
+
+.weather-card {
+  transition: all ease-in-out 0.2s;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  position: relative;
+  border-right: 1px solid #000;
+  width: calc(100% / 5);
+  z-index: 1000;
+
+  @for $i from 1 through length($colors) {
+    &:nth-of-type(#{$i}n) {
+      border-top: 5px solid nth($colors, $i);
+
+      &::before {
+        content: "";
+        height: 5px;
+        width: 100%;
+        position: absolute;
+        bottom: -5px;
+        background-color: nth($colors, $i);
+      }
+    }
+  }
+
+  .weather__day {
+    padding: 3px 12px;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+
+  .weather__deg {
+    font-size: 1.6rem;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+  }
+}

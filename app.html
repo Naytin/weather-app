@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ПРАКТИКА ПО МАССИВАМ</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+  <div class="background flex-container">
+    <div class="container">
+      <main class="main-layout">
+        <img class="bg" src="https://cdn.pixabay.com/photo/2017/06/11/18/03/london-2393098_1280.jpg" alt="city">
+        <div class="flex-container pos">
+          <div class="search-loc">
+            <input class="input__loc" type="text" placeholder="Your city here" autofocus title="Input your city here">
+          </div>
+          <select>
+            <option value="Kiev">Kiev</option>
+            <option value="London">London</option>
+            <option value="Barselona">Barselona</option>
+            <option value="Madrid">Madrid</option>
+            <option value="Mexico">Mexico</option>
+            <option value="Odesa">Odesa</option>
+            <option value="Poland">Poland</option>
+          </select>
+        </div>
+
+        <div class="flex-container center render"></div>
+
+        <ul class="controls">
+          <li class="controls__item" data-day="one">
+            TODAY
+          </li>
+
+          <li class="controls__item" data-day="five">
+            5 DAYS
+          </li>
+        </ul>
+        <section class="group-cards flex-container"></section>
+      </main>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
