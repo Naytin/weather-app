@@ -100,7 +100,7 @@ const requestCity = () => {
   } else {
     city = select.value;
   }
-  return `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=485ca2d7e2f468ad9254657c0b61579b`;
+  return `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=485ca2d7e2f468ad9254657c0b61579b`;
 };
 
 // if the user changes the choice, we send a request to get the city name
