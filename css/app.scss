@@ -29,6 +29,9 @@ body {
 
 select {
   background-color: red;
+  &:focus {
+    outline: none;
+  }
 }
 
 .background {

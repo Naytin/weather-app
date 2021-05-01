@@ -36,6 +36,10 @@ select {
   background-color: red;
 }
 
+select:focus {
+  outline: none;
+}
+
 .background {
   max-height: 100vh;
   -webkit-box-pack: center;

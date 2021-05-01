@@ -1,18 +1,18 @@
 let current_time = new Date();
 const min =
   current_time.getMinutes() < 10 ?
-  `0${current_time.getMinutes()}` :
-  current_time.getMinutes();
+    `0${current_time.getMinutes()}` :
+    current_time.getMinutes();
 
 class htmlTemp {
   constructor(options) {
     this.card = `<div class="weather-card flex-container">
         <span class="weather__day" data-day='${new Date(
-          options.day * 1000
-        ).getDate()}'>
+      options.day * 1000
+    ).getDate()}'>
           ${dataObject.days[new Date(options.day * 1000).getDay()]}, </br> ${
       dataObject.months[new Date(options.day * 1000).getMonth()]
-    }, ${new Date(options.day * 1000).getDate()}
+      }, ${new Date(options.day * 1000).getDate()}
         </span>
         <img
           src="${options.icon}"
@@ -30,13 +30,13 @@ class htmlTemp {
          <div class="inner-container flex-container">
              <div class="current__city">${options.cityName}</div>
              <div class="current__date">${
-               dataObject.days[current_time.getDay()]
-             }, ${
+      dataObject.days[current_time.getDay()]
+      }, ${
       dataObject.months[current_time.getMonth()]
-    }, ${current_time.getDate()}, ${current_time.getHours()}:${min} </div>
+      }, ${current_time.getDate()}, ${current_time.getHours()}:${min} </div>
              <img src="${
-               dataObject.icons[options.des]
-             }" alt="#" class="current__icon"/>
+      dataObject.icons[options.des]
+      }" alt="#" class="current__icon"/>
              <div class="subtitle">${options.des}</div>
          </div>
 
@@ -100,7 +100,7 @@ const requestCity = () => {
   } else {
     city = select.value;
   }
-  return `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=485ca2d7e2f468ad9254657c0b61579b`;
+  return `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=485ca2d7e2f468ad9254657c0b61579b`;
 };
 
 // if the user changes the choice, we send a request to get the city name
